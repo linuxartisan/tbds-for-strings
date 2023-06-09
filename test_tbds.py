@@ -31,6 +31,11 @@ def test_keysAndValues(setup):
     for word in words:
         assert tbds.get(word) == word
 
+def test_count(setup):
+    tbds = setup[0]
+    words = setup[1]
+    assert tbds.count() == len(words)
+
 def test_searchPrefix(setup):
     tbds = setup[0]
     words = setup[1]
@@ -44,13 +49,6 @@ def test_searchPrefix(setup):
         print("Result should contain:", realResult)
         print("        Actual result:", yourResult)
         assert Counter(realResult) == Counter(yourResult)
-
-def test_print(setup):
-    tbds = setup[0]
-    words = setup[1]
-
-    # tbds.print()
-    print("word count:", len(words))
 
 
 

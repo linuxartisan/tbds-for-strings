@@ -127,6 +127,7 @@ class TBDS:
 
         return keys
 
+
     # Prints all values stored inside the TBDS
     def print(self) -> None:
         print("The values in the tree:")
@@ -147,3 +148,25 @@ class TBDS:
                 print(presentNode.value, sep='\t')
             self._print(presentNode)
 
+
+    # Counts number of values stored in the TBDS
+    def count(self) -> int:
+        if not self.root:
+            return 0
+
+        return self._count(self.root)
+
+    def _count(self, currentNode: TBDSNode) -> int:
+        count = 0
+        if currentNode.value:
+            count += 1
+
+        children = currentNode.children
+        if not children:
+            return count
+        
+        for elem in children:
+            presentNode = children[elem]
+            count += self._count(presentNode)
+
+        return count

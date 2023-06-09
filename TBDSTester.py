@@ -2,6 +2,7 @@ from TBDS import TBDS
 
 def main():
     tbds = TBDS()
+
     tbds.add("a", "a")
     tbds.add("an", "an")
     tbds.add("mam", "mam")
@@ -24,6 +25,8 @@ def main():
     tbds.print()
     print()
 
+    print("Checking for count")
+    print(tbds.count())
 
     print("Checking for keys:")
 
